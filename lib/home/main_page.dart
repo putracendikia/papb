@@ -22,6 +22,8 @@ class _MainPageState extends State<MainPage> {
               child: Stack(
                 children: [
                   const PromoSlider(),
+                  const Positioned(
+                      top: 200, left: 0, right: 0, child: CoreMenu()),
                   Positioned(
                     top: 180,
                     left: 0,
@@ -42,7 +44,8 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingQR(),
+      floatingActionButton: const FloatingQR(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const NavBar(),
     );
   }

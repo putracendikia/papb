@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ngopeee',
       theme: ThemeData(
+          fontFamily: 'Plus Jakarta',
           scaffoldBackgroundColor: const Color.fromARGB(255, 255, 250, 235)),
       home: const MainPage(),
     );
