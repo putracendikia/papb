@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.papb">
    <application
-        android:label="papb"
+        android:label="ngopee"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
