@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:papb/home/main_page.dart';
 
 void main() => runApp(const MyApp());
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Ngopeee',
       theme: ThemeData(
           scaffoldBackgroundColor: const Color.fromARGB(255, 255, 250, 235)),
