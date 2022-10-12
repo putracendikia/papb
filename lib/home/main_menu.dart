@@ -23,10 +23,11 @@ class _PilihOutletState extends State<PilihOutlet> {
           height: 55,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Ngopeee Km.10',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                 ),
@@ -36,7 +37,7 @@ class _PilihOutletState extends State<PilihOutlet> {
               ),
               Text(
                 'Jalan Pahlawan No 20 ',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                 ),
@@ -65,10 +66,18 @@ class _LoyaltyWidgetState extends State<LoyaltyWidget> {
       child: SizedBox(
         height: 25,
         child: Row(
-          children: const [
-            Text('Loyalty'),
-            Spacer(),
-            Text('Level 1'),
+          children: [
+            Text(
+              'Loyalty',
+              style: GoogleFonts.plusJakartaSans(
+                  fontSize: 14.0, fontWeight: FontWeight.w400),
+            ),
+            const Spacer(),
+            Text(
+              'Level 1',
+              style: GoogleFonts.plusJakartaSans(
+                  fontSize: 16.0, fontWeight: FontWeight.w600),
+            ),
           ],
         ),
       ),
@@ -244,9 +253,10 @@ class _CoreMenuState extends State<CoreMenu> {
           const SizedBox(
             height: 130,
           ),
-          const Text(
+          Text(
             'Order dan lengkapi stampmu',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            style: GoogleFonts.plusJakartaSans(
+                fontSize: 16, fontWeight: FontWeight.w600),
           ),
           const SizedBox(
             height: 15,
@@ -255,9 +265,10 @@ class _CoreMenuState extends State<CoreMenu> {
           const SizedBox(
             height: 30,
           ),
-          const Text(
+          Text(
             'Promo Untukmu',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            style: GoogleFonts.plusJakartaSans(
+                fontSize: 16, fontWeight: FontWeight.w600),
           ),
           const SizedBox(
             height: 15,

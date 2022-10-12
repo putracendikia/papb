@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:papb/profile/editprofil_page.dart';
+import 'package:papb/promo/promo.dart';
 
 import '../home/main_menu.dart';
 import '../home/main_page.dart';
@@ -309,7 +310,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     () {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
-                        return const OrderPage();
+                        return const PromoPage();
                       }));
                     },
                   );
@@ -317,7 +318,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    Icon(Icons.emoji_food_beverage, color: Colors.black),
+                    Icon(Icons.confirmation_num, color: Colors.black),
                   ],
                 ),
               ),

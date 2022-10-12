@@ -3,6 +3,7 @@ import 'package:papb/home/main_menu.dart';
 import 'package:papb/home/main_page.dart';
 import 'package:papb/order/grid_view.dart';
 import 'package:papb/profile/profile_page.dart';
+import 'package:papb/promo/promo.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({Key? key}) : super(key: key);
@@ -49,6 +50,7 @@ class _OrderPageState extends State<OrderPage> {
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.only(top: 20),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
                         'Menu',
@@ -56,7 +58,7 @@ class _OrderPageState extends State<OrderPage> {
                             fontSize: 18, fontWeight: FontWeight.w600),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 15,
                       ),
                       GridMenu()
                     ],
@@ -121,7 +123,7 @@ class _OrderPageState extends State<OrderPage> {
                       () {
                         Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) {
-                          return const OrderPage();
+                          return const PromoPage();
                         }));
                       },
                     );
@@ -129,7 +131,7 @@ class _OrderPageState extends State<OrderPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Icon(Icons.emoji_food_beverage, color: Colors.black),
+                      Icon(Icons.confirmation_num, color: Colors.black),
                     ],
                   ),
                 ),
