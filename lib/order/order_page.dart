@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:papb/home/main_menu.dart';
 import 'package:papb/home/main_page.dart';
 import 'package:papb/order/grid_view.dart';
+import 'package:papb/profile/profile_page.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({Key? key}) : super(key: key);
@@ -73,44 +74,85 @@ class _OrderPageState extends State<OrderPage> {
           child: SizedBox(
             height: 60,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    MaterialButton(
-                      minWidth: 40,
-                      onPressed: () {
-                        setState(() {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const MainPage();
-                          }));
-                        });
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.home, color: Colors.black),
-                        ],
-                      ),
-                    ),
-                    MaterialButton(
-                      onPressed: () {
-                        setState(
-                          () {},
-                        );
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.emoji_food_beverage,
-                              color: Color.fromARGB(255, 224, 194, 139)),
-                        ],
-                      ),
-                    ),
-                  ],
+                const SizedBox(
+                  width: 20,
                 ),
+                // Row(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                MaterialButton(
+                  minWidth: 40,
+                  onPressed: () {
+                    setState(() {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const MainPage();
+                      }));
+                    });
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.home, color: Colors.black),
+                    ],
+                  ),
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    setState(
+                      () {},
+                    );
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.emoji_food_beverage,
+                          color: Color.fromARGB(255, 224, 194, 139)),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 70),
+                MaterialButton(
+                  onPressed: () {
+                    setState(
+                      () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const OrderPage();
+                        }));
+                      },
+                    );
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.emoji_food_beverage, color: Colors.black),
+                    ],
+                  ),
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    setState(
+                      () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const ProfilePage();
+                        }));
+                      },
+                    );
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.account_circle, color: Colors.black),
+                    ],
+                  ),
+                ),
+                //   ],
+                // ),
               ],
             ),
           ),

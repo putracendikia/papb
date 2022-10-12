@@ -211,9 +211,27 @@ class CoreMenu extends StatefulWidget {
 }
 
 class _CoreMenuState extends State<CoreMenu> {
+  final List<Map<String, dynamic>> gridMap = [
+    {
+      "title": "Lorem Ipsum",
+      "price": "Rp. 12.000",
+      "images": "./assets/image/produk_a.JPG",
+    },
+    {
+      "title": "Lorem Ipsum",
+      "price": "Rp. 12.000",
+      "images": "./assets/image/produk_b.JPG",
+    },
+    {
+      "title": "Lorem Ipsum",
+      "price": "Rp. 12.000",
+      "images": "./assets/image/produk_c.JPG",
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 1500,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       width: double.maxFinite,
       decoration: BoxDecoration(
@@ -222,24 +240,27 @@ class _CoreMenuState extends State<CoreMenu> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          SizedBox(
+        children: [
+          const SizedBox(
             height: 130,
           ),
-          Text(
+          const Text(
             'Order dan lengkapi stampmu',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          StampCollection(),
-          SizedBox(
+          const StampCollection(),
+          const SizedBox(
             height: 30,
           ),
-          Text(
+          const Text(
             'Promo Untukmu',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(
+            height: 15,
           ),
         ],
       ),

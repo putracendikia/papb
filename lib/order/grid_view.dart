@@ -10,27 +10,27 @@ class GridMenu extends StatefulWidget {
 class _GridMenuState extends State<GridMenu> {
   final List<Map<String, dynamic>> gridMap = [
     {
-      "title": "white sneaker with adidas logo",
+      "title": "Lorem Ipsum",
       "price": "Rp. 15.000",
       "images": "assets/image/produk_a.JPG",
     },
     {
-      "title": "Black Jeans with blue stripes",
+      "title": "Lorem Ipsum",
       "price": "Rp. 15.000",
       "images": "assets/image/produk_b.JPG",
     },
     {
-      "title": "Red shoes with black stripes",
+      "title": "Lorem Ipsum",
       "price": "Rp. 15.000",
       "images": "assets/image/produk_c.JPG",
     },
     {
-      "title": "Gamma shoes with beta brand.",
+      "title": "Lorem Ipsum",
       "price": "Rp. 15.000",
       "images": "assets/image/produk_d.JPG",
     },
     {
-      "title": "Alpha t-shirt for alpha testers.",
+      "title": "Lorem Ipsum",
       "price": "Rp. 15.000",
       "images": "assets/image/produk_e.JPG",
     },
