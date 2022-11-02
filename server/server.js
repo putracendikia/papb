@@ -6,8 +6,8 @@ const jwt = require("jsonwebtoken");
 const prisma = new PrismaClient();
 const { requireAuth } = require("./middleware/authMiddleware");
 const cookieParser = require("cookie-parser");
-
 require("dotenv").config();
+const ngopeeeRouter = require("./controller/ngopeee");
 
 const app = express();
 const port = 3000;
@@ -43,6 +43,8 @@ let parameter = {
   },
 };
 
+app.use("/api/ngopeee", ngopeeeRouter);
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -61,26 +63,28 @@ app.get("/Menu", async (req, res, next) => {
   }
 });
 
-app.get("/Keranjang", async (req, res, next) => {
-  try {
-    const getMenu = await prisma.tbl_Menu.findMany({
-      where: {
-        id: { in: ["cl80eygx2025964cl6udwcstr", "cl80df451015864clorkgcdap"] },
-      },
-      select: {
-        nameMenu: true,
-        priceMenu: true,
-      },
-    });
-    const totalPrize = getMenu.reduce((acc, curVal) => {
-      return acc + parseInt(curVal.priceMenu);
-    }, 0);
-    return res.status(200).json({ getMenu, totalPrize });
-  } catch (error) {
-    console.log(error);
-    return res.status(500);
-  }
-});
+app.use("/api/ngopee/keranjang",ngopeeeRouter)
+
+// app.get("/Keranjang", async (req, res, next) => {
+//   try {
+//     const getMenu = await prisma.tbl_Menu.findMany({
+//       where: {
+//         id: { in: ["cl80eygx2025964cl6udwcstr", "cl80df451015864clorkgcdap"] },
+//       },
+//       select: {
+//         nameMenu: true,
+//         priceMenu: true,
+//       },
+//     });
+//     const totalPrize = getMenu.reduce((acc, curVal) => {
+//       return acc + parseInt(curVal.priceMenu);
+//     }, 0);
+//     return res.status(200).json({ getMenu, totalPrize });
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(500);
+//   }
+// });
 
 app.post("/gopay", (req, res, next) => {
   try {
@@ -200,88 +204,88 @@ app.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-app.post(
-  "/RegisterVacany",
-  bodyParser.urlencoded({ extended: false }),
-  async (req, res) => {
-    const { vacanyName, descVacany, reqVacany, companyId } = req.body;
-    try {
-      const user = await prisma.User.findFirst({
-        where: {
-          id: companyId,
-        },
-      });
-      if (user.Status == "Company") {
-        const Vacany = await prisma.Vacany.create({
-          data: {
-            VacanyName: vacanyName,
-            DescVacany: descVacany,
-            ReqVacany: reqVacany,
-            companyId: user.id,
-          },
-        });
-        return res.status(201).json({ vacanId: Vacany.id });
-      } else {
-        console.log("User is not Company");
-      }
-    } catch (err) {
-      console.log(err);
-      return res.status(500);
-    }
-  }
-);
-app.get("/ListVacany", requireAuth, async (req, res, next) => {
-  try {
-    const getAllVacany = await prisma.Vacany.findMany();
-    return res.status(200).json({ getAllVacany });
-  } catch (err) {
-    console.log(err);
-    return res.status(500);
-  }
-});
+// app.post(
+//   "/RegisterVacany",
+//   bodyParser.urlencoded({ extended: false }),
+//   async (req, res) => {
+//     const { vacanyName, descVacany, reqVacany, companyId } = req.body;
+//     try {
+//       const user = await prisma.User.findFirst({
+//         where: {
+//           id: companyId,
+//         },
+//       });
+//       if (user.Status == "Company") {
+//         const Vacany = await prisma.Vacany.create({
+//           data: {
+//             VacanyName: vacanyName,
+//             DescVacany: descVacany,
+//             ReqVacany: reqVacany,
+//             companyId: user.id,
+//           },
+//         });
+//         return res.status(201).json({ vacanId: Vacany.id });
+//       } else {
+//         console.log("User is not Company");
+//       }
+//     } catch (err) {
+//       console.log(err);
+//       return res.status(500);
+//     }
+//   }
+// );
+// app.get("/ListVacany", requireAuth, async (req, res, next) => {
+//   try {
+//     const getAllVacany = await prisma.Vacany.findMany();
+//     return res.status(200).json({ getAllVacany });
+//   } catch (err) {
+//     console.log(err);
+//     return res.status(500);
+//   }
+// });
 
-app.get("/ListVacany/:id", requireAuth, async (req, res, next) => {
-  const { id } = req.params;
-  try {
-    const Vacany = await prisma.Vacany.findFirst({
-      where: {
-        id: id,
-      },
-      select: {
-        VacanyName: true,
-        DescVacany: true,
-        ReqVacany: true,
-      },
-    });
-    res.status(200).json({ Vacany });
-  } catch (err) {
-    console.log(err);
-    return res.status(500);
-  }
+// app.get("/ListVacany/:id", requireAuth, async (req, res, next) => {
+//   const { id } = req.params;
+//   try {
+//     const Vacany = await prisma.Vacany.findFirst({
+//       where: {
+//         id: id,
+//       },
+//       select: {
+//         VacanyName: true,
+//         DescVacany: true,
+//         ReqVacany: true,
+//       },
+//     });
+//     res.status(200).json({ Vacany });
+//   } catch (err) {
+//     console.log(err);
+//     return res.status(500);
+//   }
 
-  console.log(id);
-}); //Spesific Vacany
+//   console.log(id);
+// }); //Spesific Vacany
 
-app.post(
-  "/ListVacany/:idVacany/:idUser/Applied",
-  requireAuth,
-  async (req, res, next) => {
-    const { idVacany, idUser } = req.params;
-    try {
-      const CreateAppliedVacany = await prisma.AppliedVacany.create({
-        data: {
-          Status: "Pending",
-          vacanyId: idVacany,
-          userId: idUser,
-        },
-      });
-      return res.status(200).json(CreateAppliedVacany);
-    } catch (err) {
-      console.log(err);
-      return res.status(500);
-    }
-  }
-);
+// app.post(
+//   "/ListVacany/:idVacany/:idUser/Applied",
+//   requireAuth,
+//   async (req, res, next) => {
+//     const { idVacany, idUser } = req.params;
+//     try {
+//       const CreateAppliedVacany = await prisma.AppliedVacany.create({
+//         data: {
+//           Status: "Pending",
+//           vacanyId: idVacany,
+//           userId: idUser,
+//         },
+//       });
+//       return res.status(200).json(CreateAppliedVacany);
+//     } catch (err) {
+//       console.log(err);
+//       return res.status(500);
+//     }
+//   }
+// );
 
 app.post(
   "/ngopeee/register",
