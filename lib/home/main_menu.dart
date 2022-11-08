@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/home/main_page.dart';
 import 'package:papb/order/order_page.dart';
-
+import 'package:dio/dio.dart';
 // ini pilih outlet
+
 
 class PilihOutlet extends StatefulWidget {
   const PilihOutlet({Key? key}) : super(key: key);
@@ -13,7 +16,44 @@ class PilihOutlet extends StatefulWidget {
 }
 
 class _PilihOutletState extends State<PilihOutlet> {
+  late Response response;
+  Dio dio = Dio();
+  bool error = false; //for error status
+  bool loading = false; //for data featching status
+  String errmsg = ""; //to assing any error message from API/runtime
+  var apidata; //for 
   @override
+    void initState() {
+    getData(); //fetching data
+    super.initState();
+  }
+  getData() async { 
+      setState(() {
+         loading = true;  //make loading true to show progressindicator
+      });
+
+      String url = "http://localhost:3000/api/ngopeee";
+      //don't use "http://localhost/" use local IP or actual live URL
+
+      Response response = await dio.get(url); 
+      apidata = response.data; //get JSON decoded data from response
+      
+      print(apidata); //printing the JSON recieved
+
+      if(response.statusCode == 200){
+          //fetch successful
+          if(apidata["error"]){ //Check if there is error given on JSON
+              error = true; 
+              errmsg  = apidata["msg"]; //error message from JSON
+          }
+      }else{ 
+          error = true;
+          errmsg = "Error while fetching data.";
+      }
+
+      loading = false;
+      setState(() {}); //refresh UI 
+  }
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {},
@@ -26,7 +66,7 @@ class _PilihOutletState extends State<PilihOutlet> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Ngopeee Km.10',
+                'GGGGG Km.10',
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
