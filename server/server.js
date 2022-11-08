@@ -43,48 +43,20 @@ let parameter = {
   },
 };
 
-app.use("/api/ngopeee", ngopeeeRouter);
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
+
+app.use("/api/ngopeee", ngopeeeRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-app.get("/Menu", async (req, res, next) => {
-  try {
-    const getAllMenu = await prisma.tbl_Menu.findMany();
-    return res.status(200).json({ getAllMenu });
-  } catch (error) {
-    console.log(error);
-    return res.status(500);
-  }
-});
-
 app.use("/api/ngopee/keranjang",ngopeeeRouter)
-
-// app.get("/Keranjang", async (req, res, next) => {
-//   try {
-//     const getMenu = await prisma.tbl_Menu.findMany({
-//       where: {
-//         id: { in: ["cl80eygx2025964cl6udwcstr", "cl80df451015864clorkgcdap"] },
-//       },
-//       select: {
-//         nameMenu: true,
-//         priceMenu: true,
-//       },
-//     });
-//     const totalPrize = getMenu.reduce((acc, curVal) => {
-//       return acc + parseInt(curVal.priceMenu);
-//     }, 0);
-//     return res.status(200).json({ getMenu, totalPrize });
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(500);
-//   }
-// });
 
 app.post("/gopay", (req, res, next) => {
   try {
@@ -404,6 +376,8 @@ app.get("/ngopeee/detailTransaction/:id", async (req, res) => {
     return res.status(500);
   }
 });
+
+
 
 app.get("/ngopeee/dashboard", async (req, res) => {
   try {
