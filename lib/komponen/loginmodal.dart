@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RegisterModal extends StatefulWidget {
-  const RegisterModal({super.key});
+class LoginModal extends StatefulWidget {
+  const LoginModal({super.key});
 
   @override
-  State<RegisterModal> createState() => _RegisterModalState();
+  State<LoginModal> createState() => _LoginModalState();
 }
 
-class _RegisterModalState extends State<RegisterModal> {
+class _LoginModalState extends State<LoginModal> {
   String _selectedItem = '';
   bool isChecked = false;
 
@@ -25,7 +25,7 @@ class _RegisterModalState extends State<RegisterModal> {
         context: context,
         builder: (context) {
           return Container(
-            height: 460,
+            height: 360,
             color: Color(0xFF737373),
             child: Container(
               padding: const EdgeInsets.all(20.0),
@@ -70,7 +70,7 @@ class _RegisterModalState extends State<RegisterModal> {
                       hintText: '********',
                     ),
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 8),
                   Row(
                     children: [
                       Checkbox(
@@ -81,9 +81,9 @@ class _RegisterModalState extends State<RegisterModal> {
                               isChecked = value!;
                             });
                           }),
-                      SizedBox(width: 8),
+                      SizedBox(width: 4),
                       Text(
-                        "Saya menyetujui kebijakan aplikasi Ngopee",
+                        "Simpan Kata Sandi",
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
@@ -92,34 +92,6 @@ class _RegisterModalState extends State<RegisterModal> {
                     ],
                   ),
                   SizedBox(height: 16),
-                  Container(
-                    padding: const EdgeInsets.all(20.0),
-                    decoration: BoxDecoration(
-                      color: Colors.amber[100],
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Masukkan nomor aktif handphone kamu",
-                          style: GoogleFonts.plusJakartaSans(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          "Konfirmasi akun dengan memasukan nomor OTP dari SMS",
-                          style: GoogleFonts.plusJakartaSans(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 24),
                   Container(
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 153, 110, 56),
@@ -130,7 +102,7 @@ class _RegisterModalState extends State<RegisterModal> {
                     child: GestureDetector(
                       onTap: () {},
                       child: const Center(
-                        child: Text('Daftar',
+                        child: Text('Masuk',
                             style: TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.w600,
@@ -144,7 +116,7 @@ class _RegisterModalState extends State<RegisterModal> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Sudah punya akun?",
+                        "Belum punya akun?",
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
@@ -152,7 +124,7 @@ class _RegisterModalState extends State<RegisterModal> {
                       ),
                       SizedBox(width: 4),
                       Text(
-                        "Klik untuk masuk",
+                        "Klik untuk daftar",
                         style: GoogleFonts.plusJakartaSans(
                           color: const Color.fromARGB(255, 153, 110, 56),
                           fontSize: 12,
