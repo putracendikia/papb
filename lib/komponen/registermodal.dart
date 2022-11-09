@@ -41,7 +41,7 @@ class _RegisterModalState extends State<RegisterModal> {
                 children: [
                   SizedBox(height: 8),
                   Text(
-                    "No Telepon",
+                    "Email",
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
@@ -51,7 +51,7 @@ class _RegisterModalState extends State<RegisterModal> {
                   TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: '08XXXXXXX',
+                      hintText: 'yourmail@mail.com',
                     ),
                   ),
                   SizedBox(height: 16),
