@@ -43,7 +43,7 @@ class _CoffeeArticleState extends State<CoffeeArticle> {
                 Container(
                   width: double.infinity,
                   child: Image.asset(
-                    'lib/assets/image/produk_a.JPG',
+                    './assets/image/produk_a.JPG',
                     height: 300,
                     fit: BoxFit.cover,
                   ),
