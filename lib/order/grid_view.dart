@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:papb/entities/datamenu.dart';
+import 'package:http/http.dart' as http;
 
 class GridMenu extends StatefulWidget {
   const GridMenu({Key? key}) : super(key: key);
@@ -8,6 +12,7 @@ class GridMenu extends StatefulWidget {
 }
 
 class _GridMenuState extends State<GridMenu> {
+  late Future<List<Menu>> futureMenu;
   final List<Map<String, dynamic>> gridMap = [
     {
       "title": "Lorem Ipsum",
@@ -37,56 +42,83 @@ class _GridMenuState extends State<GridMenu> {
   ];
 
   @override
+  void initState(){
+    super.initState();
+    futureMenu = fetchMenu();
+  }
+
   Widget build(BuildContext context) {
-    return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          mainAxisExtent: 250),
-      itemCount: gridMap.length,
-      itemBuilder: (_, index) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.white,
-            // boxShadow: [
-            //   BoxShadow(color: Colors.grey, blurRadius: 2.0),
-            // ],
-          ),
-          child: Column(
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(16.0),
-                  topRight: Radius.circular(16.0),
+    return FutureBuilder <List<Menu>>(
+      future: fetchMenu(),
+      builder: (context, snapshot) {
+        if(snapshot.hasData){
+          return GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                mainAxisExtent: 250),
+            itemCount: snapshot.data!.length,
+            itemBuilder: (BuildContext context, index) {
+              return Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.white,
+                  // boxShadow: [
+                  //   BoxShadow(color: Colors.grey, blurRadius: 2.0),
+                  // ],
                 ),
-                child: Image.asset(
-                  "${gridMap.elementAt(index)['images']}",
-                  height: 170,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
-                    Text("${gridMap.elementAt(index)['title']}"),
-                    const SizedBox(
-                      height: 8.0,
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(16.0),
+                        topRight: Radius.circular(16.0),
+                      ),
+                      child: Image.asset(
+                        "assets/image/produk_a.JPG",
+                        height: 170,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    Text("${gridMap.elementAt(index)['price']}",
-                        textAlign: TextAlign.left)
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: [
+                          Text(snapshot.data![index].id),
+                          const SizedBox(
+                            height: 8.0,
+                          ),
+                          Text(snapshot.data![index].nameMenu,
+                              textAlign: TextAlign.left)
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-              ),
-            ],
-          ),
-        );
-      },
+              );
+            },
+          );
+        } else if(snapshot.hasError){
+          return Text('${snapshot.error}');
+        }
+        return const CircularProgressIndicator();
+      }
     );
   }
 }
+Future<List<Menu>> fetchMenu() async {
+  final response = await http.get(Uri.parse('http://103.187.146.72:3000/api/ngopeee'));
+  if(response.statusCode == 200) {
+    // dynamic result = jsonDecode(response);
+    // print(response.body);
+    List result = jsonDecode(response.body);
+    return result.map((e) => Menu.fromJson(e)).toList();
+  }else{
+    throw Exception('Failed Load Menu');
+  }
+}
+

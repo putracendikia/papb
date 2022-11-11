@@ -201,7 +201,7 @@ router.post('/transaction/checkout', bodyParser.urlencoded({extended : false}),a
       enable_callback: true, // optional
       callback_url: "someapps://callback", // optional
     },
-  };
+  };  
   try {
     core.charge(parameter).then((chargeResponse) => {
       const data = {
