@@ -241,7 +241,7 @@ class _CoreMenuState extends State<CoreMenu> {
   
   Widget build(BuildContext context) {
     return Container(
-      height: 1500,
+      height: 900,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       width: double.maxFinite,
       decoration: BoxDecoration(
@@ -251,9 +251,6 @@ class _CoreMenuState extends State<CoreMenu> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 130,
-          ),
           Text(
             'Order dan lengkapi stampmu',
             style: GoogleFonts.plusJakartaSans(
@@ -273,6 +270,19 @@ class _CoreMenuState extends State<CoreMenu> {
           ),
           const SizedBox(
             height: 15,
+          ),
+          Expanded(
+            flex: 1,
+            child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: gridMap.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    child: Text('Tes'),
+                  );
+                }),
           ),
         ],
       ),
