@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:papb/home/main_page.dart';
 
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {

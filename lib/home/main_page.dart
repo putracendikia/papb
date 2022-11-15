@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:papb/home/main_menu.dart';
 import 'package:papb/home/promo_slider.dart';
+import 'package:papb/keranjang/cart.dart';
+import 'package:papb/komponen/loginmodal.dart';
 import 'package:papb/order/order_page.dart';
+import 'package:papb/payment/payment.dart';
 import 'package:papb/profile/profile_page.dart';
 import 'package:papb/promo/promo.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -129,7 +133,25 @@ class _MainPageState extends State<MainPage> {
                     () {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
-                        return const ProfilePage();
+                        return CheckAuth();
+                      }));
+                    },
+                  );
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.account_circle, color: Colors.black),
+                  ],
+                ),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  setState(
+                    () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const Cart();
                       }));
                     },
                   );
@@ -148,5 +170,44 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     );
+  }
+}
+
+
+class CheckAuth extends StatefulWidget{
+  @override
+  _CheckAuthState createState() => _CheckAuthState();
+}
+
+class _CheckAuthState extends State<CheckAuth>{
+  bool isAuth = false;
+  @override
+  void initState(){
+    super.initState();
+    _CheckIfLoggedIn();
+  }
+
+  void _CheckIfLoggedIn() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var token = localStorage.getString('token');
+    if(token != null) {
+      if(mounted){
+        setState(() {
+          isAuth = true;
+        });
+      }
+    }
+  }
+  @override
+  Widget build(BuildContext context){
+    Widget child;
+    if(isAuth){
+      child = const ProfilePage();
+    } else{
+      child = const LoginModal();
+    }
+  return Scaffold(
+    body : child,
+  );
   }
 }

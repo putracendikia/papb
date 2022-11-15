@@ -4,11 +4,13 @@ import 'package:papb/keranjang/controler.dart';
 import 'package:get/get.dart';
 
 class CartList extends StatelessWidget {
-  CartList({super.key});
+  CartList({super.key,this.data});
   final Controler c = Get.put(Controler());
+  final data;
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -26,11 +28,12 @@ class CartList extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 16),
+                  
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Produk A",
+                        "data",
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w800,

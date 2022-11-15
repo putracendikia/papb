@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/keranjang/cartlist.dart';
 import 'package:papb/komponen/cardbutton.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+List menu = [];
 class Cart extends StatefulWidget {
   const Cart({super.key});
 
@@ -12,6 +14,19 @@ class Cart extends StatefulWidget {
 
 class _CartState extends State<Cart> {
   @override
+    void initState() {
+    super.initState();
+    _loadChart();
+  }
+  _loadChart() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      menu.add(prefs.getStringList("keranjang")?? "");
+    });
+    print(menu);  
+  }
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber[50],
@@ -53,9 +68,6 @@ class _CartState extends State<Cart> {
                       ],
                     ),
                     SizedBox(height: 16),
-                    CartList(),
-                    SizedBox(height: 8),
-                    CartList(),
                   ],
                 ),
                 SizedBox(height: 40),

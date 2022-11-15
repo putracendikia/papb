@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:papb/profile/editprofil_page.dart';
 import 'package:papb/promo/promo.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../home/main_menu.dart';
 import '../home/main_page.dart';
@@ -231,7 +232,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     const SizedBox(
                       height: 50.0,
                     ),
-                    GestureDetector(
+                    InkWell(
+                      onTap: () {
+                        logout();
+                      },
                       child: Container(
                         width: 350,
                         height: 40,
@@ -353,4 +357,13 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
     ));
   }
+
+   logout() async{
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      localStorage.remove('token');
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context)=> MainPage()));
+    }
+
 }

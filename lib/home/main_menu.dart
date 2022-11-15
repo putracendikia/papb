@@ -1,9 +1,7 @@
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/home/main_page.dart';
 import 'package:papb/order/order_page.dart';
-import 'package:dio/dio.dart';
 // ini pilih outlet
 
 
