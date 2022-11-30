@@ -4,7 +4,20 @@ import 'package:papb/produk/coffeetile.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class CoffeeArticle extends StatefulWidget {
-  const CoffeeArticle({super.key});
+  final String id;
+  final String nameMenu;
+  final String priceMenu;
+  final String descMenu;
+  final String image;
+
+  const CoffeeArticle(
+      {Key? key,
+      required this.id,
+      required this.nameMenu,
+      required this.priceMenu,
+      required this.descMenu,
+      required this.image})
+      : super(key: key);
 
   @override
   State<CoffeeArticle> createState() => _CoffeeArticleState();
