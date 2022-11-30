@@ -141,7 +141,12 @@ class _PromoPageState extends State<PromoPage> {
                 MaterialButton(
                   onPressed: () {
                     setState(
-                      () {},
+                      () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const OrderPage();
+                        }));
+                      },
                     );
                   },
                   child: Column(
@@ -158,7 +163,7 @@ class _PromoPageState extends State<PromoPage> {
                       () {
                         Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) {
-                          return const OrderPage();
+                          return const PromoPage();
                         }));
                       },
                     );
