@@ -49,7 +49,7 @@ class _GridMenuState extends State<GridMenu> {
           mainAxisExtent: 250),
       itemCount: gridMap.length,
       itemBuilder: (_, index) {
-        return GestureDetector(
+        return InkWell(
           onTap: () {
             setState(() {
               Navigator.push(context, MaterialPageRoute(builder: (context) {

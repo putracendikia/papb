@@ -19,7 +19,9 @@ class _CoffeeArticleState extends State<CoffeeArticle> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+            },
             child: Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
