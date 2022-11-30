@@ -18,45 +18,43 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Expanded(
-            child: Container(
-              constraints: const BoxConstraints(minHeight: 800),
-              color: const Color.fromARGB(255, 255, 250, 235),
-              child: Stack(
-                children: [
-                  const PromoSlider(),
-                  Positioned(
-                    top: 200,
-                    left: 0,
-                    right: 0,
-                    child: Column(
-                      children: [
-                        CoreMenu(),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 180,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      // padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 10.0,
-                      ),
-                      child: Column(
-                        children: [
-                          LoyaltyWidget(),
-                          SizedBox(
-                            height: 10,
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 800),
+            color: const Color.fromARGB(255, 255, 250, 235),
+            child: Column(
+              children: [
+                Container(
+                  height: 320,
+                  child: Stack(
+                    children: [
+                      const PromoSlider(),
+                      Positioned(
+                        top: 180,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          margin: EdgeInsets.symmetric(
+                            horizontal: 10.0,
                           ),
-                          PilihOutlet(),
-                        ],
+                          child: Column(
+                            children: [
+                              LoyaltyWidget(),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              PilihOutlet(),
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(
+                  height: 20.0,
+                ),
+                CoreMenu(),
+              ],
             ),
           ),
         ),
@@ -69,12 +67,9 @@ class _MainPageState extends State<MainPage> {
         child: SizedBox(
           height: 60,
           child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
-                width: 20,
-              ),
               // Row(
               //   crossAxisAlignment: CrossAxisAlignment.start,
               //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
