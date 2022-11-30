@@ -40,6 +40,7 @@ dependencies:
   toggle_switch: ^2.0.1
   intl: ^0.17.0
   get: ^4.6.5
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_lints: ^2.0.1

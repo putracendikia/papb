@@ -15,22 +15,7 @@ class PromoPage extends StatefulWidget {
   State<PromoPage> createState() => _PromoPageState();
 }
 
-class _PromoPageState extends State<PromoPage>
-    with SingleTickerProviderStateMixin {
-  late final TabController tabController;
-
-  @override
-  void initState() {
-    tabController = TabController(length: 2, vsync: this);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    tabController.dispose();
-    super.dispose();
-  }
-
+class _PromoPageState extends State<PromoPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
