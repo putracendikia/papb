@@ -42,7 +42,7 @@ class _CoffeeArticleState extends State<CoffeeArticle> {
           ),
           centerTitle: true,
           title: Text(
-            "Produk A",
+            widget.nameMenu,
             style: GoogleFonts.plusJakartaSans(
               fontSize: 14,
               fontWeight: FontWeight.w600,
@@ -58,7 +58,7 @@ class _CoffeeArticleState extends State<CoffeeArticle> {
                 Container(
                   width: double.infinity,
                   child: Image.asset(
-                    './assets/image/produk_a.JPG',
+                    widget.image,
                     height: 300,
                     fit: BoxFit.cover,
                   ),
@@ -68,18 +68,30 @@ class _CoffeeArticleState extends State<CoffeeArticle> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Produk A",
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
+                      Row(
+                        children: [
+                          Text(
+                            widget.nameMenu,
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Spacer(),
+                          Text(
+                            widget.priceMenu,
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 4,
                       ),
                       Text(
-                        "Perpaduan cita rasa kopi, es dan juga air",
+                        widget.descMenu,
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
                         ),
