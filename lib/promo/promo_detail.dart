@@ -2,7 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PromoDetail extends StatelessWidget {
-  const PromoDetail({Key? key}) : super(key: key);
+  final String judul;
+  final String berlaku;
+  final String syarat;
+  final String urlimage;
+
+  const PromoDetail(
+      {Key? key,
+      required this.judul,
+      required this.berlaku,
+      required this.syarat,
+      required this.urlimage})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +52,7 @@ class PromoDetail extends StatelessWidget {
               ),
             ),
             Image.asset(
-              './assets/image/produk_c.JPG',
+              '$urlimage',
               width: double.infinity,
               height: 240.0,
               fit: BoxFit.cover,
@@ -57,14 +68,14 @@ class PromoDetail extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Diskon 50% untuk anak baru',
+                      '$judul',
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(
-                      'Berlaku hingga 06 Sep 2022',
+                      '$berlaku',
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 12.0,
                         fontWeight: FontWeight.w600,
@@ -80,7 +91,7 @@ class PromoDetail extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         )),
                     Text(
-                      'Tanpa minimal pembelian untuk semua minuman non-promo dengan diskon 50% s/d Rp 20000. Promo berlaku di seluruh outlet Ngopee',
+                      '$syarat',
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 12.0,
                         fontWeight: FontWeight.w400,

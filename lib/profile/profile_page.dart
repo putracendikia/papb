@@ -295,7 +295,12 @@ class _ProfilePageState extends State<ProfilePage> {
               MaterialButton(
                 onPressed: () {
                   setState(
-                    () {},
+                    () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const OrderPage();
+                      }));
+                    },
                   );
                 },
                 child: Column(
