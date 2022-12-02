@@ -225,7 +225,7 @@ class _CoreMenuState extends State<CoreMenu> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 900,
+      height: 430,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       width: double.maxFinite,
       decoration: BoxDecoration(
@@ -234,6 +234,7 @@ class _CoreMenuState extends State<CoreMenu> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             'Order dan lengkapi stampmu',
@@ -255,10 +256,7 @@ class _CoreMenuState extends State<CoreMenu> {
           const SizedBox(
             height: 15,
           ),
-          Expanded(
-            flex: 1,
-            child: PromoUntukmu(),
-          ),
+          PromoUntukmu()
         ],
       ),
     );
@@ -364,16 +362,69 @@ class _PromoUntukmuState extends State<PromoUntukmu> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      scrollDirection: Axis.horizontal,
-      shrinkWrap: true,
-      itemCount: foryouMap.length,
-      itemBuilder: (context, index) {
-        return SizedBox(
-          child: Text('Tes'),
-        );
-      },
+    return Expanded(
+      child: ListView.builder(
+        physics: BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        itemCount: foryouMap.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.all(10.0),
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return CoffeeArticle(
+                      id: "${foryouMap.elementAt(index)['id']}",
+                      nameMenu: "${foryouMap.elementAt(index)['nameMenu']}",
+                      priceMenu: "${foryouMap.elementAt(index)['priceMenu']}",
+                      descMenu: "${foryouMap.elementAt(index)['descMenu']}",
+                      image: "${foryouMap.elementAt(index)['image']}",
+                    );
+                  }));
+                });
+              },
+              child: Container(
+                width: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  children: [
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(16.0),
+                        topRight: Radius.circular(16.0),
+                      ),
+                      child: Image.asset(
+                        "${foryouMap.elementAt(index)['image']}",
+                        height: 170,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: [
+                          Text("${foryouMap.elementAt(index)['nameMenu']}"),
+                          const SizedBox(
+                            height: 8.0,
+                          ),
+                          Text("${foryouMap.elementAt(index)['priceMenu']}",
+                              textAlign: TextAlign.left)
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

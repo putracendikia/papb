@@ -19,7 +19,7 @@ class _MainPageState extends State<MainPage> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Container(
-            constraints: const BoxConstraints(minHeight: 800),
+            constraints: const BoxConstraints(minHeight: 400),
             color: const Color.fromARGB(255, 255, 250, 235),
             child: Column(
               children: [
