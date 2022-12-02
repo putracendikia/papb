@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/keranjang/cartlist.dart';
 import 'package:papb/komponen/cardbutton.dart';
+import 'package:papb/payment/payment.dart';
+import 'package:papb/struk/struk.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -116,7 +118,12 @@ class _CartState extends State<Cart> {
                   width: 140,
                   height: 52,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const PaymentMenu();
+                      }));
+                    },
                     child: const Center(
                       child: Text(
                         'Beli Sekarang',
