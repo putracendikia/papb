@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/home/main_page.dart';
 import 'package:papb/order/order_page.dart';
 
+import '../produk/coffeearticle.dart';
+
 // ini pilih outlet
 
 class PilihOutlet extends StatefulWidget {
@@ -220,23 +222,6 @@ class CoreMenu extends StatefulWidget {
 }
 
 class _CoreMenuState extends State<CoreMenu> {
-  final List<Map<String, dynamic>> gridMap = [
-    {
-      "title": "Lorem Ipsum",
-      "price": "Rp. 12.000",
-      "images": "./assets/image/produk_a.JPG",
-    },
-    {
-      "title": "Lorem Ipsum",
-      "price": "Rp. 12.000",
-      "images": "./assets/image/produk_b.JPG",
-    },
-    {
-      "title": "Lorem Ipsum",
-      "price": "Rp. 12.000",
-      "images": "./assets/image/produk_c.JPG",
-    }
-  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -272,16 +257,7 @@ class _CoreMenuState extends State<CoreMenu> {
           ),
           Expanded(
             flex: 1,
-            child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: gridMap.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    child: Text('Tes'),
-                  );
-                }),
+            child: PromoUntukmu(),
           ),
         ],
       ),
@@ -359,29 +335,45 @@ class PromoUntukmu extends StatefulWidget {
 }
 
 class _PromoUntukmuState extends State<PromoUntukmu> {
-  final List<Map<String, dynamic>> gridMap = [
+  final List<Map<String, dynamic>> foryouMap = [
     {
-      "title": "white sneaker with adidas logo",
-      "price": "\$255",
-      "images":
-          "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80",
+      "id": "jcug70xkxr",
+      "nameMenu": "Arnold33",
+      "priceMenu": 78405,
+      "descMenu":
+          "Facere eius nobis nam ab architecto labore ad aspernatur. Nemo voluptas eos placeat natus ducimus eveniet adipisci. Ea quas repudiandae nesciunt quae.",
+      "image": "././assets/image/produk_a.JPG"
     },
     {
-      "title": "Black Jeans with blue stripes",
-      "price": "\$245",
-      "images":
-          "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "id": "wpatzytzqc",
+      "nameMenu": "Justus.Schimmel",
+      "priceMenu": 60341,
+      "descMenu":
+          "Iste repudiandae in pariatur reprehenderit veritatis at earum officiis. Dolorem inventore quis cumque eligendi ab quisquam perspiciatis. Repellat eligendi eligendi odio autem magnam nostrum. Tempora velit temporibus molestias saepe dicta perferendis. Tempore reprehenderit tempora quo similique fuga eaque ipsam.",
+      "image": "././assets/image/produk_b.JPG"
     },
     {
-      "title": "Red shoes with black stripes",
-      "price": "\$155",
-      "images":
-          "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "id": "o41buwmpky",
+      "nameMenu": "Demario_Schuppe",
+      "priceMenu": 43604,
+      "descMenu":
+          "Vitae iure quos esse aliquam labore pariatur non. Ipsam veritatis hic est voluptate. Dignissimos natus corporis dolorem sequi neque. Illum eum vitae et officia. Minus natus ea nulla explicabo accusantium quae tempore.",
+      "image": "././assets/image/produk_c.JPG"
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView();
+    return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      itemCount: foryouMap.length,
+      itemBuilder: (context, index) {
+        return SizedBox(
+          child: Text('Tes'),
+        );
+      },
+    );
   }
 }
