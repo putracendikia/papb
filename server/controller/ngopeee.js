@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const prisma = new PrismaClient();
 const router = require("express").Router();
-
 let midtransClient = require("midtrans-client");
 const { urlencoded } = require("body-parser");
 
@@ -25,10 +24,10 @@ const createWebToken = (id) => {
 router.get("/", async (req, res) => {
   try {
     const getAllMenu = await prisma.tbl_Menu.findMany();
-    return res.status(200).json({ getAllMenu });
+    return res.status(200).json({ status : "succes" , data : getAllMenu});
   } catch (e) {
     console.log(e);
-    return res.status(500).json({ message: e.message });
+    return res.status(500).json({ status : "Failed",message: e.message });
   }
 });
 
@@ -40,7 +39,7 @@ router.get('/menu/:idMenu',bodyParser.urlencoded({extended : false}) ,async (req
         id : idMenu
       }
     })
-    return res.status(200).json(data);
+    return res.status(200).json({status : "success", data: data});
   } catch(err){
     return res.status(500).json({ message: err.message });
   }
@@ -56,7 +55,7 @@ router.post('/register',bodyParser.urlencoded({extended : false}),async (req,res
         },
       });
       if (verifyEmail) {
-        return res.json("Email already exists");
+        return res.status(409).json({status : "failed", message : "Email Already Exists"});
       } else {
         let user = await prisma.tbl_User.create({
           data: {
@@ -66,11 +65,11 @@ router.post('/register',bodyParser.urlencoded({extended : false}),async (req,res
             noHp : noHp
           },
         });
-        return res.status(200).json({ user });
+        return res.status(200).json({status : "success" , data : user});
       }
     } catch (err) {
       console.log(err);
-      return res.status(500);
+      return res.status(500).json({status : "error"});
     }
 })
 
@@ -82,9 +81,9 @@ router.get('/profile/:id' , bodyParser.urlencoded({extended : false}) , async (r
         id : id
       }
     })
-    return res.status(200).json(user);
+    return res.status(200).json({status : "success" , data : user});
   } catch (error) {
-    return res.status(500).send("User Tidak Ada")
+    return res.status(500).json({status : "error", message : error.message})
   }
 })
 
@@ -101,9 +100,9 @@ router.put('/profile/:id' , bodyParser.urlencoded({extended : false}) , async (r
         email : email ? email : user.email
       }
     })
-    return res.status(200).send(user)
+    return res.status(200).json({status: 'success' , data:user})
   } catch (err) {
-    return res.status(500).send("Gagal merubah user")
+    return res.status(500).send({status : 'error' , messag : err.message})
   }
 })
 
@@ -115,9 +114,9 @@ router.delete('/profile/:id' , bodyParser.urlencoded({extended : false}) , async
         id : id
       },
     })
-    return res.status(200).send("User Berhasil Dihapus")
+    return res.status(200).json({status: 'success', data : user})
   } catch (err) {
-    return res.status(500).send("Gagal merubah user")
+    return res.status(500).json({status : "error", message : err.message})
   }
 })
 
@@ -144,11 +143,11 @@ router.post(
           httpOnly: true,
           maxAge: maxAgeSession * 1000,
         });
-        res.status(200).send("Login Berhasil");
+        res.status(200).json({status : "success" , data : user});
       }
     } catch (err) {
       console.log(err);
-      return res.status(500);
+      return res.status(500).json({status : "error" , message : "Email atau Password Salah" });
     }
   }
 );
@@ -161,10 +160,10 @@ router.get("/logout", (req, res) => {
 router.get('/transaction/status' , async (req, res) => {
   try {
     core.transaction.status("test-GOPAY-135").then((response) => {
-      return res.status(200).json(response)
+      return res.status(200).json({status : "success" , data : response});
     })
   } catch (error) {
-    console.log(error)
+    return res.status(500).json({status : "error", data : error.message});
   }
 })
 
@@ -214,7 +213,7 @@ router.post('/transaction/checkout', bodyParser.urlencoded({extended : false}),a
         "Transaction Status ": chargeResponse.transaction_status,
         "Action ": chargeResponse.action,
       };
-      res.json({ chargeResponse });
+      res.status(200).json({ status : "success", data : chargeResponse});
     });
   } catch (err) {
     console.log(err)
