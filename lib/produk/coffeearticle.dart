@@ -72,12 +72,25 @@ class _CoffeeArticleState extends State<CoffeeArticle> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.nameMenu,
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          widget.nameMenu,
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          "Rp." + widget.priceMenu,
+                          style: GoogleFonts.plusJakartaSans(
+                            color: Color.fromRGBO(131, 87, 40, 1),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 4,
@@ -228,6 +241,61 @@ class _CoffeeArticleState extends State<CoffeeArticle> {
             ],
           ),
         )),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: SizedBox(
+          height: 88,
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Total",
+                      style: GoogleFonts.plusJakartaSans(
+                          color: Colors.black,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Text(
+                      "Rp." + widget.priceMenu,
+                      style: GoogleFonts.plusJakartaSans(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+                Spacer(),
+                InkWell(
+                  child: Container(
+                    width: 149,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(153, 110, 56, 1),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Beli",
+                        style: GoogleFonts.plusJakartaSans(
+                            color: Colors.white,
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

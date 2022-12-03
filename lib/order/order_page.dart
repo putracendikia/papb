@@ -17,18 +17,17 @@ class _OrderPageState extends State<OrderPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          
+        ),
         body: SingleChildScrollView(
           child: Container(
             margin: const EdgeInsets.all(20),
             child: Column(
               children: [
-                Container(
-                  alignment: Alignment.topCenter,
-                  child: const Text(
-                    'Pesan',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  ),
-                ),
                 Container(
                   padding: const EdgeInsets.only(top: 20),
                   child: Column(
