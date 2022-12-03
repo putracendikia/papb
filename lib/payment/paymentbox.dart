@@ -29,7 +29,7 @@ class PayBox extends StatelessWidget {
               topRight: Radius.circular(8.0),
             ),
             child: Image.asset(
-              'lib/assets/image/produk_a.JPG',
+              'assets/image/produk_a.JPG',
               height: 150,
               fit: BoxFit.cover,
             ),

@@ -370,7 +370,7 @@ class _PromoUntukmuState extends State<PromoUntukmu> {
         itemCount: foryouMap.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.only(right: 16.0),
             child: InkWell(
               onTap: () {
                 setState(() {

@@ -151,16 +151,15 @@ class _StrukBelanjaState extends State<StrukBelanja> {
       ),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        notchMargin: 20,
         child: SizedBox(
           height: 96,
           child: Container(
             padding: const EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
+                  width: 1000,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 153, 110, 56),
                     borderRadius: BorderRadius.circular(8.0),

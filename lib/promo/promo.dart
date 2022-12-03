@@ -85,7 +85,7 @@ class _PromoPageState extends State<PromoPage> {
                       },
                       child: Container(
                         width: 350.0,
-                        height: 64.0,
+                        height: 74.0,
                         padding: EdgeInsets.all(12.0),
                         decoration: BoxDecoration(
                           boxShadow: [
@@ -100,6 +100,7 @@ class _PromoPageState extends State<PromoPage> {
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               '${promoMap.elementAt(index)['judul']}',
@@ -109,7 +110,7 @@ class _PromoPageState extends State<PromoPage> {
                               ),
                             ),
                             const SizedBox(
-                              height: 4,
+                              height: 6,
                             ),
                             Text(
                               '${promoMap.elementAt(index)['syarat']}',

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:papb/keranjang/cart.dart';
 import 'package:papb/keranjang/controler.dart';
 import 'package:papb/produk/coffeetile.dart';
+import 'package:papb/profile/editprofil_page.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class CoffeeArticle extends StatefulWidget {
@@ -228,6 +230,77 @@ class _CoffeeArticleState extends State<CoffeeArticle> {
             ],
           ),
         )),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 20,
+        child: SizedBox(
+          height: 96,
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1.5,
+                      color: Color.fromARGB(255, 153, 110, 56),
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  child: Row(children: [
+                    IconButton(
+                      icon: Icon(Icons.remove),
+                      onPressed: () => c.decrement(),
+                    ),
+                    SizedBox(width: 8),
+                    Obx((() => Text(
+                          '${c.books.toString()}',
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ))),
+                    SizedBox(width: 8),
+                    IconButton(
+                      icon: Icon(Icons.add),
+                      onPressed: () => c.increment(),
+                    ),
+                  ]),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 153, 110, 56),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  width: 140,
+                  height: 52,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const Cart();
+                      }));
+                    },
+                    child: const Center(
+                      child: Text(
+                        'Beli Sekarang',
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
