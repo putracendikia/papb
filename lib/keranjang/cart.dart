@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/keranjang/cartlist.dart';
 import 'package:papb/komponen/cardbutton.dart';
+import 'package:papb/komponen/outletmodal.dart';
+import 'package:papb/komponen/promomodal.dart';
 import 'package:papb/order/order_page.dart';
 import 'package:papb/payment/payment.dart';
 import 'package:papb/promo/promo_detail.dart';
@@ -57,7 +59,7 @@ class _CartState extends State<Cart> {
             child: Column(
               children: [
                 CardButton(),
-                SizedBox(height: 32),
+                SizedBox(height: 16),
                 Column(
                   children: [
                     Row(
@@ -115,18 +117,7 @@ class _CartState extends State<Cart> {
                           itemBuilder: (context, index) {
                             return InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => PromoDetail(
-                                            judul:
-                                                '${promoMap.elementAt(index)['judul']}',
-                                            berlaku:
-                                                '${promoMap.elementAt(index)['berlaku']}',
-                                            syarat:
-                                                '${promoMap.elementAt(index)['syarat']}',
-                                            urlimage:
-                                                '${promoMap.elementAt(index)['urlimage']}')));
+                                showPilihModal(context);
                               },
                               child: Container(
                                 width: 350.0,
