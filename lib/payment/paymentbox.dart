@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PayBox extends StatelessWidget {
@@ -7,6 +8,7 @@ class PayBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 90,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: Colors.white,
@@ -20,6 +22,7 @@ class PayBox extends StatelessWidget {
         ],
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // coffee img
@@ -28,19 +31,15 @@ class PayBox extends StatelessWidget {
               topLeft: Radius.circular(8.0),
               topRight: Radius.circular(8.0),
             ),
-            child: Image.asset(
-              'assets/image/produk_a.JPG',
-              height: 150,
-              fit: BoxFit.cover,
-            ),
+            child: SvgPicture.asset('assets/payment/gopay.svg'),
           ),
           // coffee name
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Text(
-                  'Dompet A',
+                  'Gopay',
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
