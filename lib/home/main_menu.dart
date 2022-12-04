@@ -414,7 +414,7 @@ class _PromoUntukmuState extends State<PromoUntukmu> {
                           const SizedBox(
                             height: 8.0,
                           ),
-                          Text("${foryouMap.elementAt(index)['priceMenu']}",
+                          Text("Rp. ${foryouMap.elementAt(index)['priceMenu']}",
                               textAlign: TextAlign.left)
                         ],
                       ),

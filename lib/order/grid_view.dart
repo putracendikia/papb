@@ -92,7 +92,7 @@ class _GridMenuState extends State<GridMenu> {
                       const SizedBox(
                         height: 8.0,
                       ),
-                      Text("${gridMap.elementAt(index)['priceMenu']}",
+                      Text("Rp. ${gridMap.elementAt(index)['priceMenu']}",
                           textAlign: TextAlign.left)
                     ],
                   ),
