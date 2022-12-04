@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void showJadwalModal(context) {
@@ -39,30 +40,12 @@ void showJadwalModal(context) {
                   ),
                 ),
                 SizedBox(height: 24),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 2,
-                      color: const Color.fromARGB(255, 153, 110, 56),
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  width: 1000,
-                  height: 48,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: const Center(
-                      child: Text(
-                        'Ambil Sekarang',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
+                TimePickerSpinner(
+                  is24HourMode: false,
+                  normalTextStyle: GoogleFonts.plusJakartaSans(
+                      fontSize: 20, fontWeight: FontWeight.w400),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 24),
                 Container(
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 153, 110, 56),

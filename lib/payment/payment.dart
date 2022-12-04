@@ -16,6 +16,8 @@ class PaymentMenu extends StatefulWidget {
 }
 
 class _PaymentMenuState extends State<PaymentMenu> {
+  DateTime _timeAmbil = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
