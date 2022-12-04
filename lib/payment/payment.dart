@@ -220,7 +220,7 @@ class _PaymentMenuState extends State<PaymentMenu> {
                   height: 52,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
+                      Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
                         return const StrukBelanja();
                       }));

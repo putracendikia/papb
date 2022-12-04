@@ -15,138 +15,140 @@ class _StrukBelanjaState extends State<StrukBelanja> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber[50],
-      body: Container(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  SizedBox(height: 64),
-                  Text(
-                    "Pesanan Berhasil Dibuat",
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w400,
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    SizedBox(height: 64),
+                    Text(
+                      "Pesanan Berhasil Dibuat",
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    "Kamu akan mendapat notifikasi saat minuman selesai dibuat",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                    SizedBox(height: 8),
+                    Text(
+                      "Kamu akan mendapat notifikasi saat minuman selesai dibuat",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Detail Pesanan",
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  ],
                 ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Container(
-              width: 1000,
-              height: 460,
-              padding: const EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    spreadRadius: 3,
-                    blurRadius: 8,
-                    offset: Offset(0, 1),
-                  ),
-                ],
               ),
-              child: Column(
+              SizedBox(height: 20),
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DetailPrice(),
-                  SizedBox(height: 8),
-                  DetailPrice(),
-                  SizedBox(height: 24),
                   Text(
-                    "Pesanan",
+                    "Detail Pesanan",
                     style: GoogleFonts.plusJakartaSans(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: 4),
-                  Row(
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            "No",
-                            style: GoogleFonts.plusJakartaSans(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          SizedBox(height: 4),
-                          Text(
-                            "1",
-                            style: GoogleFonts.plusJakartaSans(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          SizedBox(height: 4),
-                          Text(
-                            "2",
-                            style: GoogleFonts.plusJakartaSans(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 24,
-                      ),
-                      Container(
-                        width: 268,
-                        child: Column(
-                          children: [
-                            DetailPrice(),
-                            SizedBox(height: 4),
-                            DetailPrice(),
-                            SizedBox(height: 4),
-                            DetailPrice(),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(height: 24),
-                  DetailPrice(),
-                  SizedBox(height: 8),
-                  DetailPrice(),
-                  SizedBox(height: 8),
-                  DetailPrice(),
-                  SizedBox(height: 8),
-                  DetailPrice(),
                 ],
               ),
-            ),
-          ],
+              SizedBox(height: 20),
+              Container(
+                width: 1000,
+                height: 460,
+                padding: const EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      spreadRadius: 3,
+                      blurRadius: 8,
+                      offset: Offset(0, 1),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    DetailPrice(),
+                    SizedBox(height: 8),
+                    DetailPrice(),
+                    SizedBox(height: 24),
+                    Text(
+                      "Pesanan",
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Row(
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "No",
+                              style: GoogleFonts.plusJakartaSans(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            SizedBox(height: 4),
+                            Text(
+                              "1",
+                              style: GoogleFonts.plusJakartaSans(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            SizedBox(height: 4),
+                            Text(
+                              "2",
+                              style: GoogleFonts.plusJakartaSans(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 24,
+                        ),
+                        Container(
+                          width: 268,
+                          child: Column(
+                            children: [
+                              DetailPrice(),
+                              SizedBox(height: 4),
+                              DetailPrice(),
+                              SizedBox(height: 4),
+                              DetailPrice(),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 24),
+                    DetailPrice(),
+                    SizedBox(height: 8),
+                    DetailPrice(),
+                    SizedBox(height: 8),
+                    DetailPrice(),
+                    SizedBox(height: 8),
+                    DetailPrice(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
@@ -167,10 +169,12 @@ class _StrukBelanjaState extends State<StrukBelanja> {
                   height: 52,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const OrderPage();
-                      }));
+                      setState(() {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const OrderPage();
+                        }));
+                      });
                     },
                     child: const Center(
                       child: Text(
