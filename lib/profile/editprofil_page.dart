@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -21,48 +22,47 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+          ),
+          centerTitle: true,
+          title: Text(
+            'Versi Aplikasi',
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
+          ),
+        ),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.only(top: 20.0),
             margin: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               children: [
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                        onPressed: () => Navigator.pop(context, false),
-                        icon: const Icon(Icons.arrow_back_ios),
-                      ),
-                    ),
-                    const Text(
-                      'Edit Profil',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 36.0,
-                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Nama Lengkap',
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: Color.fromARGB(255, 99, 99, 102),
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(
-                      height: 2,
+                    SizedBox(
+                      height: 8,
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
@@ -73,9 +73,9 @@ class _EditProfileState extends State<EditProfile> {
                             color: const Color.fromARGB(255, 199, 199, 204)),
                       ),
                       height: 52,
-                      child: const TextField(
+                      child: TextField(
                         keyboardType: TextInputType.name,
-                        style: TextStyle(
+                        style: GoogleFonts.plusJakartaSans(
                           color: Colors.black87,
                         ),
                         decoration: InputDecoration(
@@ -92,22 +92,22 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 16,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Nomor Telepon',
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: Color.fromARGB(255, 99, 99, 102),
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(
-                      height: 2,
+                      height: 8,
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
@@ -118,9 +118,9 @@ class _EditProfileState extends State<EditProfile> {
                             color: const Color.fromARGB(255, 199, 199, 204)),
                       ),
                       height: 52,
-                      child: const TextField(
+                      child: TextField(
                         keyboardType: TextInputType.phone,
-                        style: TextStyle(
+                        style: GoogleFonts.plusJakartaSans(
                           color: Colors.black87,
                         ),
                         decoration: InputDecoration(
@@ -137,27 +137,32 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 16.0,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Jenis Kelamin',
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: Color.fromARGB(255, 99, 99, 102),
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 8,
                     ),
                     Container(
+                      width: 1000,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 244, 225, 182),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                       alignment: Alignment.center,
                       child: ToggleSwitch(
-                        minWidth: 179.0,
+                        minWidth: 170.0,
                         minHeight: 44.0,
                         initialLabelIndex: 0,
                         totalSwitches: 2,
@@ -169,11 +174,12 @@ class _EditProfileState extends State<EditProfile> {
                         activeFgColor: Colors.black,
                         inactiveBgColor:
                             const Color.fromARGB(255, 244, 225, 182),
-                        customTextStyles: const [
-                          TextStyle(fontWeight: FontWeight.w600)
+                        customTextStyles: [
+                          GoogleFonts.plusJakartaSans(
+                              fontWeight: FontWeight.w600)
                         ],
                         fontSize: 14.0,
-                        borderWidth: 4.0,
+                        borderWidth: 5.0,
                         borderColor: const [Color.fromARGB(255, 244, 225, 182)],
                       ),
                     ),
@@ -185,16 +191,16 @@ class _EditProfileState extends State<EditProfile> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Tanggal Lahir',
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: Color.fromARGB(255, 99, 99, 102),
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(
-                      height: 2,
+                    SizedBox(
+                      height: 8,
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
@@ -224,7 +230,7 @@ class _EditProfileState extends State<EditProfile> {
                                     children: [
                                       Text(
                                         'Masukkan Tanggal lahirmu',
-                                        style: TextStyle(
+                                        style: GoogleFonts.plusJakartaSans(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -269,8 +275,9 @@ class _EditProfileState extends State<EditProfile> {
                                           child: Center(
                                             child: Text(
                                               'Simpan',
-                                              style: TextStyle(
-                                                fontSize: 14.0,
+                                              style:
+                                                  GoogleFonts.plusJakartaSans(
+                                                fontSize: 16.0,
                                                 fontWeight: FontWeight.w600,
                                                 color: Colors.white,
                                               ),
@@ -294,7 +301,7 @@ class _EditProfileState extends State<EditProfile> {
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.all(14.0),
                           hintText: 'DD/MM/YY',
-                          hintStyle: TextStyle(
+                          hintStyle: GoogleFonts.plusJakartaSans(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: Color.fromARGB(255, 142, 142, 147),
@@ -310,16 +317,16 @@ class _EditProfileState extends State<EditProfile> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Kota Anda',
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: Color.fromARGB(255, 99, 99, 102),
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(
-                      height: 2,
+                      height: 8,
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
@@ -330,16 +337,16 @@ class _EditProfileState extends State<EditProfile> {
                             color: const Color.fromARGB(255, 199, 199, 204)),
                       ),
                       height: 52,
-                      child: const TextField(
+                      child: TextField(
                         keyboardType: TextInputType.name,
-                        style: TextStyle(
+                        style: GoogleFonts.plusJakartaSans(
                           color: Colors.black87,
                         ),
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.all(14.0),
                           hintText: 'Nama Kota Anda',
-                          hintStyle: TextStyle(
+                          hintStyle: GoogleFonts.plusJakartaSans(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: Color.fromARGB(255, 142, 142, 147),
@@ -360,7 +367,7 @@ class _EditProfileState extends State<EditProfile> {
                   },
                   child: Container(
                     width: 350,
-                    height: 40,
+                    height: 52,
                     decoration: BoxDecoration(
                       color: Color.fromARGB(255, 153, 110, 56),
                       borderRadius: BorderRadius.circular(8.0),

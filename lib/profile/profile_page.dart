@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:papb/profile/editprofil_page.dart';
+import 'package:papb/profile/kebijakan.dart';
+import 'package:papb/profile/syarat.dart';
+import 'package:papb/profile/tentang.dart';
+import 'package:papb/profile/versi.dart';
 import 'package:papb/promo/promo.dart';
 
 import '../home/main_menu.dart';
@@ -121,112 +125,152 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.help,
-                          size: 32.0,
-                          color: Color.fromARGB(255, 153, 110, 56),
+                    // Row(
+                    //   children: const [
+                    //     Icon(
+                    //       Icons.help,
+                    //       size: 32.0,
+                    //       color: Color.fromARGB(255, 153, 110, 56),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 20.0,
+                    //     ),
+                    //     Text(
+                    //       'Bantuan',
+                    //       style: TextStyle(
+                    //         fontSize: 14.0,
+                    //         fontWeight: FontWeight.w400,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                    // const SizedBox(
+                    //   height: 30.0,
+                    // ),
+                    Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const SyaratKetentuan();
+                          }));
+                        },
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.feed_rounded,
+                              size: 32.0,
+                              color: Color.fromARGB(255, 153, 110, 56),
+                            ),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            Text(
+                              'Syarat dan Ketentuan',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Text(
-                          'Bantuan',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                     const SizedBox(
                       height: 30.0,
                     ),
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.feed_rounded,
-                          size: 32.0,
-                          color: Color.fromARGB(255, 153, 110, 56),
+                    Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const KebijakanPrivasi();
+                          }));
+                        },
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.privacy_tip,
+                              size: 32.0,
+                              color: Color.fromARGB(255, 153, 110, 56),
+                            ),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            Text(
+                              'Kebijakan Privasi',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Text(
-                          'Syarat dan Ketentuan',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                     const SizedBox(
                       height: 30.0,
                     ),
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.privacy_tip,
-                          size: 32.0,
-                          color: Color.fromARGB(255, 153, 110, 56),
+                    Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const TentangAplikasi();
+                          }));
+                        },
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.phone_android,
+                              size: 32.0,
+                              color: Color.fromARGB(255, 153, 110, 56),
+                            ),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            Text(
+                              'Tentang Aplikasi',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Text(
-                          'Kebijakan Privasi',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                     const SizedBox(
                       height: 30.0,
                     ),
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.phone_android,
-                          size: 32.0,
-                          color: Color.fromARGB(255, 153, 110, 56),
+                    Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const VersiAplikasi();
+                          }));
+                        },
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.phonelink_setup,
+                              size: 32.0,
+                              color: Color.fromARGB(255, 153, 110, 56),
+                            ),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            Text(
+                              'Versi Aplikasi',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Text(
-                          'Tentang Aplikasi',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30.0,
-                    ),
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.phonelink_setup,
-                          size: 32.0,
-                          color: Color.fromARGB(255, 153, 110, 56),
-                        ),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Text(
-                          'Versi Aplikasi',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                     const SizedBox(
                       height: 50.0,
@@ -234,7 +278,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     GestureDetector(
                       child: Container(
                         width: 350,
-                        height: 40,
+                        height: 48,
                         decoration: BoxDecoration(
                           color: Color.fromARGB(255, 202, 59, 59),
                           borderRadius: BorderRadius.circular(8.0),
