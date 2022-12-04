@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:papb/order/order_page.dart';
 import 'package:papb/payment/detailprice.dart';
 
 class StrukBelanja extends StatefulWidget {
@@ -74,77 +75,118 @@ class _StrukBelanjaState extends State<StrukBelanja> {
                 ],
               ),
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    DetailPrice(),
-                    SizedBox(height: 8),
-                    DetailPrice(),
-                    SizedBox(height: 24),
-                    Text(
-                      "Pesanan",
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DetailPrice(),
+                  SizedBox(height: 8),
+                  DetailPrice(),
+                  SizedBox(height: 24),
+                  Text(
+                    "Pesanan",
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
                     ),
-                    SizedBox(height: 4),
-                    Row(
-                      children: [
-                        Column(
+                  ),
+                  SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "No",
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            "1",
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            "2",
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 24,
+                      ),
+                      Container(
+                        width: 268,
+                        child: Column(
                           children: [
-                            Text(
-                              "No",
-                              style: GoogleFonts.plusJakartaSans(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
+                            DetailPrice(),
                             SizedBox(height: 4),
-                            Text(
-                              "1",
-                              style: GoogleFonts.plusJakartaSans(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
+                            DetailPrice(),
                             SizedBox(height: 4),
-                            Text(
-                              "2",
-                              style: GoogleFonts.plusJakartaSans(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
+                            DetailPrice(),
                           ],
                         ),
-                        SizedBox(
-                          width: 24,
-                        ),
-                        Container(
-                          width: 268,
-                          child: Column(
-                            children: [
-                              DetailPrice(),
-                              SizedBox(height: 4),
-                              DetailPrice(),
-                              SizedBox(height: 4),
-                              DetailPrice(),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(height: 24),
-                    DetailPrice(),
-                    SizedBox(height: 8),
-                    DetailPrice(),
-                    SizedBox(height: 8),
-                    DetailPrice(),
-                    SizedBox(height: 8),
-                    DetailPrice(),
-                  ]),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 24),
+                  DetailPrice(),
+                  SizedBox(height: 8),
+                  DetailPrice(),
+                  SizedBox(height: 8),
+                  DetailPrice(),
+                  SizedBox(height: 8),
+                  DetailPrice(),
+                ],
+              ),
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        child: SizedBox(
+          height: 96,
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 1000,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 153, 110, 56),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  height: 52,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const OrderPage();
+                      }));
+                    },
+                    child: const Center(
+                      child: Text(
+                        'Kembali',
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

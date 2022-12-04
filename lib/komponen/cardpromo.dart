@@ -1,11 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CardButton2 extends StatelessWidget {
-  const CardButton2({super.key});
+class CardPromo extends StatefulWidget {
+  const CardPromo({super.key});
 
+  @override
+  State<CardPromo> createState() => _CardPromoState();
+}
+
+class _CardPromoState extends State<CardPromo> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +27,7 @@ class CardButton2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Ngopee Km.10',
+              'Diskon 50% untuk anak baru',
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 14,
                 fontWeight: FontWeight.w800,
@@ -29,12 +35,13 @@ class CardButton2 extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              'No.24 Jalan Soekarno Hatta Km.10',
+              'bla bla bla',
               style: GoogleFonts.plusJakartaSans(fontSize: 12),
             ),
           ],
         ),
       ),
     );
+    ;
   }
 }

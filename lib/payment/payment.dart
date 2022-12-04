@@ -4,6 +4,7 @@ import 'package:papb/komponen/cardbutton.dart';
 import 'package:papb/payment/deliverytable.dart';
 import 'package:papb/payment/detailprice.dart';
 import 'package:papb/payment/paymentbox.dart';
+import 'package:papb/struk/struk.dart';
 
 class PaymentMenu extends StatefulWidget {
   const PaymentMenu({super.key});
@@ -20,10 +21,23 @@ class _PaymentMenuState extends State<PaymentMenu> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+        ),
         centerTitle: true,
         title: Text(
           "Pembayaran",
-          style: GoogleFonts.plusJakartaSans(color: Colors.black),
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
+          ),
         ),
       ),
       body: SafeArea(
@@ -117,7 +131,39 @@ class _PaymentMenuState extends State<PaymentMenu> {
           SizedBox(
             height: 32,
           ),
-          CardButton(),
+          Container(
+            width: 1000,
+            height: 78,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 2,
+                color: Color.fromARGB(255, 6, 209, 57),
+              ),
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.white,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Voucher bisa dipakai',
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Diskon 50% untuk anak baru',
+                    style: GoogleFonts.plusJakartaSans(fontSize: 12),
+                  ),
+                ],
+              ),
+            ),
+          ),
           SizedBox(
             height: 32,
           ),
@@ -125,14 +171,77 @@ class _PaymentMenuState extends State<PaymentMenu> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               DetailPrice(),
-              SizedBox(
-                height: 8,
-              ),
+              SizedBox(height: 8),
               DetailPrice(),
             ]),
           )
         ]),
       )),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 20,
+        child: SizedBox(
+          height: 96,
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 2,
+                      color: const Color.fromARGB(255, 153, 110, 56),
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  width: 140,
+                  height: 52,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: const Center(
+                      child: Text(
+                        'Jadwalkan',
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 153, 110, 56),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  width: 140,
+                  height: 52,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const StrukBelanja();
+                      }));
+                    },
+                    child: const Center(
+                      child: Text(
+                        'Beli Sekarang',
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
