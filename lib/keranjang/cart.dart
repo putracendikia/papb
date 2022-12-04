@@ -75,8 +75,7 @@ class _CartState extends State<Cart> {
                         ),
                         TextButton(
                           style: TextButton.styleFrom(
-                            foregroundColor:
-                                const Color.fromARGB(255, 153, 110, 56),
+                            primary: const Color.fromARGB(255, 153, 110, 56),
                             textStyle: GoogleFonts.plusJakartaSans(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
