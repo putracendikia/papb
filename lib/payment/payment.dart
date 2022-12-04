@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:papb/komponen/batalmodal.dart';
 import 'package:papb/komponen/cardbutton.dart';
+import 'package:papb/komponen/jadwalmodal.dart';
 import 'package:papb/payment/deliverytable.dart';
 import 'package:papb/payment/detailprice.dart';
 import 'package:papb/payment/paymentbox.dart';
@@ -23,7 +25,7 @@ class _PaymentMenuState extends State<PaymentMenu> {
         backgroundColor: Colors.transparent,
         leading: GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            showBatalModal(context);
           },
           child: Icon(
             Icons.arrow_back_ios,
@@ -199,7 +201,9 @@ class _PaymentMenuState extends State<PaymentMenu> {
                   width: 140,
                   height: 52,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      showJadwalModal(context);
+                    },
                     child: const Center(
                       child: Text(
                         'Jadwalkan',

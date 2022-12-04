@@ -56,7 +56,6 @@ class _OrderPageState extends State<OrderPage> {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.only(top: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
