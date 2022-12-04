@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:papb/home/main_page.dart';
+import 'package:papb/tab_decider.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Ngopeee',
       theme: ThemeData(
           scaffoldBackgroundColor: const Color.fromARGB(255, 255, 250, 235)),
-      home: const MainPage(),
+      home: const TabDecider(),
     );
   }
 }

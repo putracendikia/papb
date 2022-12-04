@@ -3,8 +3,9 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/komponen/cardbutton2.dart';
+import 'package:papb/komponen/cardpromo.dart';
 
-void showPilihOutlet(context) {
+void showPilihModal(context) {
   showModalBottomSheet(
       context: context,
       builder: (context) {
@@ -23,16 +24,16 @@ void showPilihOutlet(context) {
               children: [
                 SizedBox(height: 12),
                 Text(
-                  "Pilih Outlet",
+                  "Pilih Promo",
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(height: 24),
-                CardButton2(),
+                CardPromo(),
                 SizedBox(height: 4),
-                CardButton2(),
+                CardPromo(),
                 SizedBox(height: 24),
                 Container(
                   decoration: BoxDecoration(

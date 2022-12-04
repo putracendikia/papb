@@ -85,7 +85,7 @@ class _PromoPageState extends State<PromoPage> {
                       },
                       child: Container(
                         width: 350.0,
-                        height: 64.0,
+                        height: 74.0,
                         padding: EdgeInsets.all(12.0),
                         decoration: BoxDecoration(
                           boxShadow: [
@@ -100,6 +100,7 @@ class _PromoPageState extends State<PromoPage> {
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               '${promoMap.elementAt(index)['judul']}',
@@ -109,7 +110,7 @@ class _PromoPageState extends State<PromoPage> {
                               ),
                             ),
                             const SizedBox(
-                              height: 4,
+                              height: 6,
                             ),
                             Text(
                               '${promoMap.elementAt(index)['syarat']}',
@@ -125,102 +126,6 @@ class _PromoPageState extends State<PromoPage> {
                     );
                   }),
             ],
-          ),
-        ),
-        floatingActionButton: const FloatingQR(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomAppBar(
-          shape: const CircularNotchedRectangle(),
-          notchMargin: 10,
-          child: SizedBox(
-            height: 60,
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  width: 20,
-                ),
-                // Row(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: [
-                MaterialButton(
-                  minWidth: 40,
-                  onPressed: () {
-                    setState(() {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const MainPage();
-                      }));
-                    });
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.home, color: Colors.black),
-                    ],
-                  ),
-                ),
-                MaterialButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const OrderPage();
-                        }));
-                      },
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.emoji_food_beverage, color: Colors.black),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 70),
-                MaterialButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const PromoPage();
-                        }));
-                      },
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.confirmation_num,
-                          color: Color.fromARGB(255, 224, 194, 139)),
-                    ],
-                  ),
-                ),
-                MaterialButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const ProfilePage();
-                        }));
-                      },
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.account_circle, color: Colors.black),
-                    ],
-                  ),
-                ),
-                //   ],
-                // ),
-              ],
-            ),
           ),
         ),
       ),

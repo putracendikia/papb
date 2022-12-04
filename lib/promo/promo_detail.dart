@@ -74,6 +74,9 @@ class PromoDetail extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
+                    SizedBox(
+                      height: 8,
+                    ),
                     Text(
                       '$berlaku',
                       style: GoogleFonts.plusJakartaSans(
@@ -83,13 +86,18 @@ class PromoDetail extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 48.0,
+                      height: 24.0,
                     ),
-                    Text('Syarat & Ketentuan',
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w600,
-                        )),
+                    Text(
+                      'Syarat & Ketentuan',
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
                     Text(
                       '$syarat',
                       style: GoogleFonts.plusJakartaSans(

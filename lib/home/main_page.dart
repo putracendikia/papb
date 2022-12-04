@@ -37,6 +37,7 @@ class _MainPageState extends State<MainPage> {
                             horizontal: 10.0,
                           ),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               LoyaltyWidget(),
                               SizedBox(
@@ -54,95 +55,6 @@ class _MainPageState extends State<MainPage> {
                   height: 20.0,
                 ),
                 CoreMenu(),
-              ],
-            ),
-          ),
-        ),
-        floatingActionButton: const FloatingQR(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomAppBar(
-          shape: const CircularNotchedRectangle(),
-          notchMargin: 10,
-          child: SizedBox(
-            height: 60,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // Row(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                MaterialButton(
-                  minWidth: 40,
-                  onPressed: () {
-                    setState(() {});
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.home,
-                          color: Color.fromARGB(255, 224, 194, 139)),
-                    ],
-                  ),
-                ),
-                MaterialButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const OrderPage();
-                        }));
-                      },
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.emoji_food_beverage, color: Colors.black),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 70),
-                MaterialButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const PromoPage();
-                        }));
-                      },
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.confirmation_num, color: Colors.black),
-                    ],
-                  ),
-                ),
-                MaterialButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const ProfilePage();
-                        }));
-                      },
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.account_circle, color: Colors.black),
-                    ],
-                  ),
-                ),
-                //   ],
-                // ),
               ],
             ),
           ),

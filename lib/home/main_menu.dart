@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/home/main_page.dart';
+import 'package:papb/komponen/outletmodal.dart';
 import 'package:papb/order/order_page.dart';
 
 import '../produk/coffeearticle.dart';
@@ -18,10 +19,11 @@ class _PilihOutletState extends State<PilihOutlet> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        showPilihOutlet(context);
+      },
       child: ShadowContainer(
         child: SizedBox(
-          width: double.infinity,
           height: 55,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +99,6 @@ class ShadowContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10.0),
-      margin: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -370,7 +371,7 @@ class _PromoUntukmuState extends State<PromoUntukmu> {
         itemCount: foryouMap.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.only(right: 16.0),
             child: InkWell(
               onTap: () {
                 setState(() {
