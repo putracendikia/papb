@@ -284,20 +284,20 @@ class _CoffeeArticleState extends State<CoffeeArticle> {
                     ),
                   ]),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 153, 110, 56),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  width: 140,
-                  height: 52,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const Cart();
-                      }));
-                    },
+                InkWell(
+                  onTap: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const Cart();
+                    }));
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 153, 110, 56),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    width: 140,
+                    height: 52,
                     child: const Center(
                       child: Text(
                         'Beli Sekarang',

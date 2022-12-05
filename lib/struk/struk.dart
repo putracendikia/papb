@@ -160,22 +160,19 @@ class _StrukBelanjaState extends State<StrukBelanja> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 1000,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 153, 110, 56),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  height: 52,
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const OrderPage();
-                        }));
-                      });
-                    },
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      Navigator.pop(context);
+                    });
+                  },
+                  child: Container(
+                    width: 1000,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 153, 110, 56),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    height: 52,
                     child: const Center(
                       child: Text(
                         'Kembali',
