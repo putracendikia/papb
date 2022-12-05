@@ -86,7 +86,7 @@ class CartList extends StatelessWidget {
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.drive_file_rename_outline),
+                icon: Icon(Icons.delete),
                 onPressed: () => null,
               ),
             ],
