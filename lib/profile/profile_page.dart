@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:papb/komponen/jadwalmodal.dart';
+import 'package:papb/komponen/loginmodal.dart';
 import 'package:papb/profile/editprofil_page.dart';
 import 'package:papb/profile/kebijakan.dart';
 import 'package:papb/profile/syarat.dart';

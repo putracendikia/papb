@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:papb/home/main_menu.dart';
 import 'package:papb/home/main_page.dart';
+import 'package:papb/komponen/globalvariable.dart';
+import 'package:papb/komponen/jadwalmodal.dart';
+import 'package:papb/komponen/loginmodal.dart';
 import 'package:papb/order/order_page.dart';
 import 'package:papb/profile/profile_page.dart';
 import 'package:papb/promo/promo.dart';
@@ -110,7 +113,7 @@ class _TabDeciderState extends State<TabDecider> {
                 onTap: () {
                   setState(
                     () {
-                      currentPage = 3;
+                      isLogin ? currentPage = 3 : showLoginModal(context);
                     },
                   );
                 },
