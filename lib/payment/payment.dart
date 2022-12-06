@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/komponen/batalmodal.dart';
@@ -7,6 +9,7 @@ import 'package:papb/payment/deliverytable.dart';
 import 'package:papb/payment/detailprice.dart';
 import 'package:papb/payment/paymentbox.dart';
 import 'package:papb/struk/struk.dart';
+import 'package:http/http.dart' as http;
 
 class PaymentMenu extends StatefulWidget {
   const PaymentMenu({super.key});
@@ -16,7 +19,17 @@ class PaymentMenu extends StatefulWidget {
 }
 
 class _PaymentMenuState extends State<PaymentMenu> {
-  DateTime _timeAmbil = DateTime.now();
+  final DateTime _timeAmbil = DateTime.now();
+
+  postData() async {
+    var res = await http.post(Uri.parse("http://103.187.146.72:3000/api/ngopeee/transaction/checkout"),
+      body: {
+        "totalPrice": "90000",
+        "payment": "GOPAY"
+      }
+    );
+    print(res.body);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -226,6 +239,7 @@ class _PaymentMenuState extends State<PaymentMenu> {
                   height: 52,
                   child: GestureDetector(
                     onTap: () {
+                      postData();
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
                         return const StrukBelanja();

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:papb/home/main_page.dart';
 import 'package:papb/tab_decider.dart';
 
 void main() => runApp(const MyApp());

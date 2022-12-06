@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:papb/home/main_page.dart';
+import 'dart:convert';
 // import 'package:shared_preferences/shared_preferences.dart';
-
-
-
-
-
 void showLoginModal(context) {
   final formKey = GlobalKey<FormState>();
   var email,password;
@@ -29,8 +25,9 @@ void showLoginModal(context) {
       // localStorage.setString('user', json.encode(res.body['user']));
         Navigator.pushReplacement(
           context,
+          // ignore: unnecessary_new
           new MaterialPageRoute(
-              builder: (context) => MainPage()
+              builder: (context) => const MainPage()
           ),
       );
     } else {
@@ -161,3 +158,4 @@ void showLoginModal(context) {
         );
       });
 }
+

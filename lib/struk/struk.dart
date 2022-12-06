@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:papb/order/order_page.dart';
 import 'package:papb/payment/detailprice.dart';
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StrukBelanja extends StatefulWidget {
   const StrukBelanja({super.key});
@@ -11,7 +13,14 @@ class StrukBelanja extends StatefulWidget {
 }
 
 class _StrukBelanjaState extends State<StrukBelanja> {
-  @override
+
+  launchDeepLinkGopay() async {
+    try {
+      launchUrl(Uri.parse('https://simulator.sandbox.midtrans.com/gopay/partner/app/payment-pin?id=ad8ee2ff-7cfc-460c-ac68-fd4315173f10'),mode: LaunchMode.platformDefault);
+    } catch (e) {
+      throw 'Could not launch';
+    }
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber[50],
@@ -169,6 +178,7 @@ class _StrukBelanjaState extends State<StrukBelanja> {
                   height: 52,
                   child: GestureDetector(
                     onTap: () {
+                      launchDeepLinkGopay();
                       setState(() {
                         Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) {
